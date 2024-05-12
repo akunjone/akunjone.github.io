@@ -13,7 +13,7 @@ function Footer(){
         setEmailUser(event.target.value);
     }
 
-    const handleSubmit = (event)=>{
+    const handleSubmit = (event) => {
         event.preventDefault();
         Email(emailUser);
         setEmailUser("");
