@@ -1,0 +1,144 @@
+@keyframes slideInOut {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    flex-direction: column;
+    display:flex;
+  }
+  
+  body {
+    background-color: #fff5d2;
+  }
+  
+  .navbar {
+    background-color: rgba(252, 171, 65, 0);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: transform 300ms;
+  }
+
+  #basic-navbar-nav {
+    transition-duration: 300ms;
+  }
+
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::before {
+    width: 100%;
+    background-color: #000;
+  }
+
+  .AppData{
+    width:70%;
+  }
+
+  .jelajah{
+    background-color: #fff;
+  }
+  
+  .foto img{
+    width:300px;
+    height: 200px;
+  }
+
+  .fun-fact{
+    background-color: white;
+    padding:35px;
+  }
+
+  .ff{
+    background-color: #fff5d2;
+    width:300px;
+  }
+
+  .ff:hover{
+    background-color: white;
+    transition-duration:300ms;
+  }
+
+  .dest-background {
+    background-image: url("https://drive.google.com/uc?id=1uuxJA8-Hk3QMe4os4L1IXpAi-tHGCjzO");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .card img {
+    margin-top: 15px;
+  }
+
+  .card {
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .card-animation::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #7a5310 20%, #1da121 80%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .card-container:hover .card-animation::after {
+    opacity: 0.5;
+  }
+  
+  .card-animation img {
+    z-index: 2;
+    position: relative;
+  }
+  
+  .card-title {
+    color: #5a5a5a;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    color: #787878;
+    font-size: 1em;
+  }
+
+  .search{
+    width:70%;
+    border-radius: 50px;
+  }
+
+  .footer{
+    background-color: #fff;
+    margin-bottom:0;
+    margin-top: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }

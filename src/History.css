@@ -1,0 +1,75 @@
+  .history-container {
+    width: 70%;
+    padding: 50px 0;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .timeline-item {
+    padding: 10px 40px;
+    position: relative;
+  }
+  
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #c5c5c5;
+  }
+  
+  .timeline-content {
+    width: 50%;
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  .timeline-content::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #c5c5c5;
+    border-radius: 50%;
+    top: 15px;
+  }
+  
+  .timeline-content.timeline-card {
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #c5c5c5;
+  }
+  
+  .timeline-img-header img {
+    width: 100%;
+  }
+  
+  .timeline-content.right {
+    right: -600px;
+  }
+  
+  .timeline-content.right::before {
+    right: -7px;
+  }
+  
+  .timeline-content.left {
+    left: -600px;
+  }
+  
+  .timeline-content.left::before {
+    left: -7px;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .timeline-content.right,
+    .timeline-content.left {
+      right: 0;
+      left: 0;
+    }
+  }
+  

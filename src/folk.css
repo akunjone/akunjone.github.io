@@ -1,0 +1,46 @@
+.folk-container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .folk-accordion {
+    margin-top: 20px;
+  }
+  
+  .folk-item {
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .folk-header {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .folk-body {
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .folk-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .folk-description {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 10px;
+  }
+  
