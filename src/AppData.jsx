@@ -100,7 +100,7 @@ function AppData() {
             Dengan pemandangan yang memukau, kekayaan sejarah yang luar biasa,
             dan keanekaragaman budaya yang kaya, Jawa Tengah menawarkan
             pengalaman indah tak terlupakan bagi para turis yang mencari
-            petualangan sejati. Nikmati dan telusurilah bersama kami.
+            petualangan sejati. Nikmatilah dan telusurilah bersama kami.
           </h5>
         </div>
       </div>
