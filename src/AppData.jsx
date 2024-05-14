@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./appdata.css";
 
-function AppData() {
+function AppData({ language, onLanguageChange }) {
   const images = [
     "https://lh3.googleusercontent.com/d/1arBVk0E-MI3TMjCW1eWnlxqaV6B3u6T4",
     "https://lh3.googleusercontent.com/d/1TioY4oNEMmlp6kgfhnJvmhOzdmLFxExF",
@@ -37,16 +37,8 @@ function AppData() {
     );
   };
 
-  const [fontSize, setFontSize] = useState(16);
 
-  const increaseFontSize = () => {
-    setFontSize((prevFontSize) => prevFontSize + 1);
-  };
-
-  const decreaseFontSize = () => {
-    setFontSize((prevFontSize) => prevFontSize - 1);
-  };
-
+  
   return (
     <div className="AppData container-fluid" style={{ width: "90%" }}>
       <div
@@ -60,58 +52,34 @@ function AppData() {
           transition: "300ms",
         }}
       >
-        <button
-          className="arrow-button left-arrow position-absolute"
-          style={{
-            left: "0",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "40px",
-            height: "40px",
-          }}
-          onClick={handlePreviousImage}
-        >
-          &lt;
-        </button>
-        <button
-          className="arrow-button right-arrow position-absolute"
-          style={{
-            right: "0",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "40px",
-            height: "40px",
-          }}
-          onClick={handleNextImage}
-        >
-          &gt;
-        </button>
         <div>
           <h1
-            className="heading-animation"
             style={{
               marginBottom: "25px",
-              animation: "slideInOut 4s linear infinite",
             }}
           >
-            <b>Jelajahi Kekayaan Jawa Tengah</b>
+            <b>{language === "id" ? "Jelajahi Kekayaan Jawa Tengah" : "Explore the Richness of Central Java"}</b>
           </h1>
           <h5>
-            Dengan pemandangan yang memukau, kekayaan sejarah yang luar biasa,
-            dan keanekaragaman budaya yang kaya, Jawa Tengah menawarkan
-            pengalaman indah tak terlupakan bagi para turis yang mencari
-            petualangan sejati. Nikmatilah dan telusurilah bersama kami.
+            {language === "id" ? "Dengan pemandangan yang memukau, kekayaan sejarah yang luar biasa, dan keanekaragaman budaya yang kaya, Jawa Tengah menawarkan pengalaman indah tak terlupakan bagi para turis yang mencari petualangan sejati. Nikmatilah dan telusurilah bersama kami." : "With stunning views, extraordinary historical wealth, and rich cultural diversity, Central Java offers unforgettable beautiful experiences for tourists looking for a true adventure. Enjoy and explore with us."}
           </h5>
+          <div className="bullets">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                className={`bullet ${index === backgroundImageIndex ? 'active' : ''}`}
+                onClick={() => setBackgroundImageIndex(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <div className="fun-fact mt-3 rounded-5">
         <h5 className="mt-3">
-          <b>Apakah kamu tahu?</b>
+          <b>{language === "id" ? "Apakah kamu tahu?" : "Did you know?"}</b>
         </h5>
         <p>
-          Jawa Tengah saat ini telah menjadi destinasi wisata yang dikunjungi
-          turis asing sehingga dapat menambah devisa negara dan membantu
-          memasarkan budaya Indonesia. Diperkirakan tahun 2024, akan ada:
+          {language === "id" ? "Jawa Tengah saat ini telah menjadi destinasi wisata yang dikunjungi turis asing sehingga dapat menambah devisa negara dan membantu memasarkan budaya Indonesia. Diperkirakan tahun 2024, akan ada:" : "Central Java has now become a tourist destination visited by foreign tourists, thus increasing the country's foreign exchange and helping to market Indonesian culture. It is estimated that in 2024, there will be:"}
         </p>
         <div
           style={{
@@ -122,27 +90,27 @@ function AppData() {
         >
           <div className="ff rounded-2 m-1 p-3" style={{ flexBasis: "45%" }}>
             <h5>
-              <b>14 Juta</b>
+              <b>{language === "id" ? "14 Juta" : "14 million"}</b>
             </h5>
-            Total Pengunjung{" "}
+            {language === "id" ? "Total Pengunjung" : "Total Visitor"}
           </div>
           <div className="ff rounded-2 m-1 p-3" style={{ flexBasis: "45%" }}>
             <h5>
               <b>90%</b>
             </h5>
-            Capaian Devisa Negara dari Target
+            {language === "id" ? "Capaian Devisa Negara dari Target" : "Foreign Exchange Achievement from Target"}
           </div>
           <div className="ff rounded-2 m-1 p-3" style={{ flexBasis: "45%" }}>
             <h5>
               <b>1024+</b>
             </h5>
-            Daya Tarik Wisata
+            {language === "id" ? "Daya Tarik Wisata" : "Tourist Attraction"}
           </div>
           <div className="ff rounded-2 m-1 p-3" style={{ flexBasis: "45%" }}>
             <h5>
-              <b>21 Juta+</b>
+              <b>{language === "id" ? "21 Juta" : "21 million"}</b>
             </h5>
-            Pengunjung + Mudik
+            {language === "id" ? "Pengunjung + Mudik" : "Visitors + Homecoming"}
           </div>
         </div>
       </div>
@@ -150,7 +118,7 @@ function AppData() {
         className="buttons-container rounded-5"
         style={{ backgroundColor: "white", padding: "35px", marginTop: "20px" }}
       >
-        <h2>Navigasi</h2>
+        <h2>{language === "id" ? "Navigasi" : "Navigation"}</h2>
         <div className="button-row">
           <button
             className="nav-button"
@@ -159,7 +127,7 @@ function AppData() {
             }}
             onClick={() => handleRoute("/history")}
           >
-            <span className="nav-button-text">Kembali ke Masa Lampau</span>
+            <span className="nav-button-text">{language === "id" ? "Kembali ke Masa Lampau" : "Back to the Past"}</span>
           </button>
           <button
             className="nav-button"
@@ -168,7 +136,7 @@ function AppData() {
             }}
             onClick={() => handleRoute("/destinations")}
           >
-            <span className="nav-button-text">Jelajahi Jawa Tengah</span>
+            <span className="nav-button-text">{language === "id" ? "Jelajahi Jawa Tengah" : "Explore Central Java"}</span>
           </button>
           <button
             className="nav-button"
@@ -177,7 +145,7 @@ function AppData() {
             }}
             onClick={() => handleRoute("/folklores")}
           >
-            <span className="nav-button-text">Kisah-Kisah Rakyat</span>
+            <span className="nav-button-text">{language === "id" ? "Kisah-Kisah Rakyat" : "Folklore"}</span>
           </button>
         </div>
       </div>
