@@ -25,6 +25,7 @@ function AppData({ language, onLanguageChange }) {
     navigate(path);
   };
 
+/*
   const handleNextImage = () => {
     setBackgroundImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -36,7 +37,7 @@ function AppData({ language, onLanguageChange }) {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
-
+*/
 
   
   return (

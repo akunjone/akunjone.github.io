@@ -39,6 +39,10 @@ function MenuNavbar({ onLanguageChange }) {
   const handleLanguageChange = async (selectedLanguage) => {
     setLanguage(selectedLanguage);
     onLanguageChange(selectedLanguage);
+
+    const textToTranslate = "Welcome to Central Java!";
+    const translatedText = await translateText(textToTranslate, language, selectedLanguage);
+    console.log("Translated Text:", translatedText);
   };
 
   const handleHomeClick = () => {

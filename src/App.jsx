@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import AppData from "./AppData";
 import Destinations from "./Destinations";
 import History from "./History";
 import Folk from "./Folklores";
 import Aboutus from "./Aboutus";
-import Footer from "./Footer";
+import Footer from "./footer";
 
 function App() {
   const [language, setLanguage] = useState("id");

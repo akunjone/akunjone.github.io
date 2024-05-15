@@ -38,10 +38,10 @@ const historyData = [
   }
 ];
 
-function History({ language }) {
+function History({ language, onLanguageChange }) {
   return (
-    <div>
-      <h1>History</h1>
+    <div className="mt-3">
+      <h2><strong>{language === "id" ? "Sejarah" : "History"}</strong></h2>
       <Accordion>
         {historyData.map((item, index) => (
           <Accordion.Item eventKey={index.toString()} key={index}>
