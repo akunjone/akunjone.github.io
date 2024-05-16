@@ -185,3 +185,31 @@ body {
 .bullet.active {
   background-color: #7a5310;
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 160px;
+  right: 40px;
+  z-index: 1000;
+}
+
+.scroll-button {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on hover */
+}
+
+.scroll-button svg {
+  color: #7a5310;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 import "./appdata.css";
 
 function AppData({ language, onLanguageChange }) {
@@ -150,6 +151,7 @@ function AppData({ language, onLanguageChange }) {
           </button>
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 }
