@@ -43,7 +43,7 @@ const folkloreData = [
 
 function Folk({language, onLanguageChange}) {
   return (
-    <div className="folk-container mt-3" style={{width:"70%"}}>
+    <div className="folk-container mt-4" style={{width:"70%"}}>
       <h2><strong>{language === "id" ? "Cerita Rakyat" : "Folklores"}</strong></h2>
       <Accordion defaultActiveKey="0">
         {folkloreData.map((folklore, index) => (
