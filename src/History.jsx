@@ -42,12 +42,12 @@ function History({ language, onLanguageChange }) {
   return (
     <div className="mt-3">
       <h2><strong>{language === "id" ? "Sejarah" : "History"}</strong></h2>
-      <Accordion>
+      <Accordion defaultActiveKey="0" className="container-fluid" style={{width:"70%"}}>
         {historyData.map((item, index) => (
           <Accordion.Item eventKey={index.toString()} key={index}>
-            <Accordion.Header>{item.title[language]}</Accordion.Header>
+            <Accordion.Header className="container-fluid">{item.title[language]}</Accordion.Header>
             <Accordion.Body>
-              <img src={item.image} alt={item.title[language]} style={{ display: 'block', width: '100%', height: 'auto', margin: 'auto' }} />
+              <img src={item.image} alt={item.title[language]} className="mb-3" style={{ display: 'block', width: '70%', height: 'auto', margin: 'auto' }} />
               <p>{item.description[language]}</p>
             </Accordion.Body>
           </Accordion.Item>
