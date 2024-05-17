@@ -4,18 +4,18 @@ import "./about.css";
 
 const teamMembers = [
   {
-    name: "Alif Nurfaiz Widyatmoko",
-    image:
-      "https://media.licdn.com/dms/image/D4E03AQFj94a3qEL26A/profile-displayphoto-shrink_400_400/0/1694530454891?e=1720656000&v=beta&t=HQYDZhWtDS6yui_-20oQfEVj3s0tjOi0D0hKzu7iifI",
-    description: "Suka Star Wars, The Orville, dan Sci-Fi lainnya",
-    descriptionEN: "Loves Star Wars, The Orville, and other Sci-Fis",
-  },
-  {
     name: "John Isaac Witness",
     image:
       "https://media.licdn.com/dms/image/D4E03AQHLL0yHmG_QEA/profile-displayphoto-shrink_400_400/0/1693917177158?e=1720656000&v=beta&t=6KzZM7hhhDN9u_k2cUJ3tLPOQykiEFN0cs972VPxjx8",
     description: "Suka capybara dan PEDROOOO",
     descriptionEN: "Loves capybara and PEDROOOO",
+  },
+  {
+    name: "Alif Nurfaiz Widyatmoko",
+    image:
+      "https://media.licdn.com/dms/image/D4E03AQFj94a3qEL26A/profile-displayphoto-shrink_400_400/0/1694530454891?e=1720656000&v=beta&t=HQYDZhWtDS6yui_-20oQfEVj3s0tjOi0D0hKzu7iifI",
+    description: "Suka Star Wars, The Orville, dan Sci-Fi lainnya",
+    descriptionEN: "Loves Star Wars, The Orville, and other Sci-Fis",
   },
   {
     name: "Maxell Nathanael",
@@ -67,7 +67,7 @@ function About({language, onLanguageChange}) {
             >
               <Card className="h-100 shadow-sm card-animation card-front">
                 <Card.Img variant="top" src={member.image} />
-                <Card.Body>
+                <Card.Body className="card-nama">
                   <Card.Title>{member.name}</Card.Title>
                 </Card.Body>
               </Card>
@@ -76,7 +76,7 @@ function About({language, onLanguageChange}) {
                   isSelected(member.name) ? "flipped" : ""
                 }`}
               >
-                <Card.Body>
+                <Card.Body className="card-description">
                   <Card.Text>{language === "id" ? member.description : member.descriptionEN}</Card.Text>
                 </Card.Body>
               </Card>
