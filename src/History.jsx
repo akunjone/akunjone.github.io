@@ -40,7 +40,7 @@ const historyData = [
 
 function History({ language, onLanguageChange }) {
   return (
-    <div className="mt-3">
+    <div className="mt-5">
       <h2><strong>{language === "id" ? "Sejarah" : "History"}</strong></h2>
       <Accordion defaultActiveKey="0" className="container-fluid" style={{width:"70%"}}>
         {historyData.map((item, index) => (
