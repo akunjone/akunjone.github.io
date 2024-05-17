@@ -3,49 +3,19 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Maps from "./Maps";
 
-function Dest({ language }) {
+function Dest({ language, onLanguageChange }) {
   const [search, setSearch] = useState("");
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
 
   const handleChange = (event) => {
+    if(event.target.value === ""){
+      event.preventDefault();
+    }
     setSearch(event.target.value);
   };
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    if (search.trim() !== "") {
-      const translatedSearch = await translateText(search, "id", "en");
-      finalDestination(translatedSearch);
-      setSearch("");
-    }
-  };
-
-  const translateText = async (text, from, to) => {
-    const url = "https://google-translate113.p.rapidapi.com/api/v1/translator/text";
-    const options = {
-      method: "POST",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "019f54214fmsh4b971311a4828a7p1a0b8bjsnb135204c5fe2",
-        "X-RapidAPI-Host": "google-translate113.p.rapidapi.com",
-      },
-      body: new URLSearchParams({
-        from: from,
-        to: to,
-        text: text,
-      }),
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      return result.translated_text;
-    } catch (error) {
-      console.error("Tdk bisa translate:", error); //keliatan di console(klo error)
-      return text;
-    }
-  };
+  const handleSubmit
 
   const finalDestination = (search) => {
     const key = `https://geocode.maps.co/search?q=${search}&api_key=663f00988f6e1038250481biza12dce`;
@@ -82,7 +52,7 @@ function Dest({ language }) {
         ></iframe>
       </div>
       <h3>{language === "id" ? "Ingin Cari dari Nama?" : "Want to Search by Name?"}</h3>
-      <Form onSubmit={handleSearch} id="searchDest">
+      <Form onSubmit={handleSubmit} id="searchDest">
         <Form.Control
           onChange={handleChange}
           value={search}

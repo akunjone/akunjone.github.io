@@ -12,7 +12,7 @@ const ScrollToTop = () => {
       // Mendapatkan tinggi jendela browser
       const windowHeight = window.innerHeight;
       // Mendapatkan posisi scroll vertikal saat ini
-      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollY = window.scrollY || window.PageTransitionEvent;
       // Menentukan tinggi buffer
       const bufferHeight = 100; // Ubah sesuai kebutuhan, ini menambahkan buffer sebesar 100 pixel
 
