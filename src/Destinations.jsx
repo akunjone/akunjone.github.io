@@ -9,13 +9,16 @@ function Dest({ language, onLanguageChange }) {
   const [long, setLong] = useState(null);
 
   const handleChange = (event) => {
-    if(event.target.value === ""){
-      event.preventDefault();
-    }
     setSearch(event.target.value);
   };
 
-  const handleSubmit
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if(search.trim() === ""){
+      return;
+    }
+    finalDestination(search);
+  }
 
   const finalDestination = (search) => {
     const key = `https://geocode.maps.co/search?q=${search}&api_key=663f00988f6e1038250481biza12dce`;
