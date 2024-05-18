@@ -6,7 +6,7 @@ import Maps from "./Maps";
 function Dest({ language }) {
   const [search, setSearch] = useState("");
   const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
+  const [long, setLong] = useState(null);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
@@ -42,20 +42,19 @@ function Dest({ language }) {
       const result = await response.json();
       return result.translated_text;
     } catch (error) {
-      console.error("Tdk bisa translate:", error);
+      console.error("Tdk bisa translate:", error); //keliatan di console(klo error)
       return text;
     }
   };
 
   const finalDestination = (search) => {
-    const key = `https://maps.googleapis.com/maps/api/geocode/json?address=${search}&key=YOUR_API_KEY`;
+    const key = `https://geocode.maps.co/search?q=${search}&api_key=663f00988f6e1038250481biza12dce`;
     fetch(key)
       .then((response) => response.json())
       .then((data) => {
-        if (data.results && data.results.length > 0) {
-          const location = data.results[0].geometry.location;
-          setLat(location.lat);
-          setLng(location.lng);
+        if (data.length > 0) {
+          setLat(data[0].lat);
+          setLong(data[0].lon);
         } else {
           console.error("Data tidak ditemukan.");
         }
@@ -95,7 +94,7 @@ function Dest({ language }) {
           {language === "id" ? "Cari" : "Search"}
         </Button>
       </Form>
-      {lat !== null && lng !== null && <Maps lat={lat} lng={lng} />}
+      {lat !== null && long !== null && <Maps lat={lat} lon={long} />}
     </div>
   );
 }
