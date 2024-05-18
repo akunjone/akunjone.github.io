@@ -3,6 +3,22 @@
     padding: 50px 0;
   }
   
+  .Accordion.Body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .history-image {
+    width: 50%;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 50px;
+  }
+  
+  .Accordion.Body p {
+    margin-top: 20px;
+  }
+
   .timeline {
     position: relative;
     max-width: 1200px;
@@ -28,7 +44,7 @@
     position: relative;
     box-sizing: border-box;
   }
-  
+
   .timeline-content::before {
     content: "";
     position: absolute;

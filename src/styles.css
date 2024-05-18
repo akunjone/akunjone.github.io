@@ -10,6 +10,36 @@ body {
   background-color: rgb(255, 248, 230);
 }
 
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .navbar {
   background-color: rgba(252, 171, 65, 0);
   border-bottom-left-radius: 30px;
@@ -103,6 +133,20 @@ body {
   background-position: center;
 }
 
+.history-image {
+  width: 50%;
+  height: 50%;
+  transition: transform 0.3s ease; 
+}
+
+.history-image.image-clicked {
+  transform: scale(1.1);
+}
+
+.history-image:hover {
+  transform: scale(1.1);
+}
+
 .card img {
   margin-top: 15px;
 }
@@ -141,6 +185,7 @@ body {
 }
 
 .card-text {
+  height: 50px;
   color: #787878;
   font-size: 1em;
 }
@@ -174,16 +219,22 @@ body {
 
 .bullet {
   width: 10px;
-  height: 14px;
+  height: 10px;
   border-radius: 50%;
   background-color: #ffffff;
   margin: 0 5px;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  opacity: 0.5;
+  transition: opacity 0.3s;
 }
 
 .bullet.active {
-  background-color: #7a5310;
+  opacity: 1;
+}
+
+.bullet:hover {
+  opacity: 0.7;
 }
 
 .scroll-to-top {

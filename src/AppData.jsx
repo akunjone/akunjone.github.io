@@ -18,7 +18,7 @@ function AppData({ language, onLanguageChange }) {
     }, 4000);
 
     return () => clearInterval(intervalId);
-  });
+  }, [images.length]);
 
   const navigate = useNavigate();
 
@@ -26,7 +26,6 @@ function AppData({ language, onLanguageChange }) {
     navigate(path);
   };
 
-/*
   const handleNextImage = () => {
     setBackgroundImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -38,9 +37,7 @@ function AppData({ language, onLanguageChange }) {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
-*/
 
-  
   return (
     <div className="AppData container-fluid" style={{ width: "90%" }}>
       <div
@@ -54,6 +51,7 @@ function AppData({ language, onLanguageChange }) {
           transition: "300ms",
         }}
       >
+        <button className="arrow left" onClick={handlePreviousImage}>&#9664;</button>
         <div>
           <h1
             style={{
@@ -75,6 +73,7 @@ function AppData({ language, onLanguageChange }) {
             ))}
           </div>
         </div>
+        <button className="arrow right" onClick={handleNextImage}>&#9654;</button>
       </div>
       <div className="fun-fact mt-3 rounded-5">
         <h5 className="mt-3">

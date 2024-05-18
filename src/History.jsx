@@ -39,6 +39,11 @@ const historyData = [
 ];
 
 function History({ language, onLanguageChange }) {
+  const handleImageClick = (index) => {
+    const image = document.getElementById(`image-${index}`);
+    image.classList.toggle("image-clicked");
+  };
+
   return (
     <div className="mt-3">
       <h2><strong>{language === "id" ? "Sejarah" : "History"}</strong></h2>
@@ -47,7 +52,13 @@ function History({ language, onLanguageChange }) {
           <Accordion.Item eventKey={index.toString()} key={index}>
             <Accordion.Header>{item.title[language]}</Accordion.Header>
             <Accordion.Body>
-              <img src={item.image} alt={item.title[language]} style={{ display: 'block', width: '100%', height: 'auto', margin: 'auto' }} />
+              <img
+                id={`image-${index}`}
+                src={item.image}
+                alt={item.title[language]}
+                onClick={() => handleImageClick(index)}
+                className="history-image"
+              />
               <p>{item.description[language]}</p>
             </Accordion.Body>
           </Accordion.Item>
