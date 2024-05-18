@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import "./appdata.css";
 
 function AppData({ language, onLanguageChange }) {
   const images = [
-    "https://lh3.googleusercontent.com/d/1arBVk0E-MI3TMjCW1eWnlxqaV6B3u6T4",
     "https://lh3.googleusercontent.com/d/1TioY4oNEMmlp6kgfhnJvmhOzdmLFxExF",
     "https://lh3.googleusercontent.com/d/1ko4B2r-CRtrl55UkH_1sZhOvB3lcfaGx",
+    "https://lh3.googleusercontent.com/d/1UwE60bVqkT_rc1iAJFd71zKVjemeDeTp",
+    "https://lh3.googleusercontent.com/d/1arBVk0E-MI3TMjCW1eWnlxqaV6B3u6T4",
+    "https://lh3.googleusercontent.com/d/17jetVH_9fx8L9y8IJO64sY9TrO1Okr3h",
   ];
 
   const [backgroundImageIndex, setBackgroundImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isFunFactVisible, setIsFunFactVisible] = useState(false);
+  const [isNavigationVisible, setIsNavigationVisible] = useState(false);
+  const funFactRef = useRef(null);
+  const navigationRef = useRef(null);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setBackgroundImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000);
+    if (!isPaused) {
+      const intervalId = setInterval(() => {
+        setBackgroundImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 5000);
 
-    return () => clearInterval(intervalId);
-  }, [images.length]);
+      return () => clearInterval(intervalId);
+    }
+  }, [images.length, isPaused]);
 
   const navigate = useNavigate();
 
@@ -30,18 +39,65 @@ function AppData({ language, onLanguageChange }) {
     setBackgroundImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 2000);
   };
 
   const handlePreviousImage = () => {
     setBackgroundImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 2000);
   };
+
+  useEffect(() => {
+    const funFactObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsFunFactVisible(true);
+            funFactObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (funFactRef.current) {
+      funFactObserver.observe(funFactRef.current);
+    }
+
+    const navigationObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsNavigationVisible(true);
+            navigationObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (navigationRef.current) {
+      navigationObserver.observe(navigationRef.current);
+    }
+
+    return () => {
+      if (funFactRef.current) {
+        funFactObserver.unobserve(funFactRef.current);
+      }
+      if (navigationRef.current) {
+        navigationObserver.unobserve(navigationRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="AppData container-fluid" style={{ width: "90%" }}>
       <div
-        className="jelajah rounded-5 mt-5 p-5 d-flex align-items-center justify-content-center position-relative"
+        className="jelajah rounded-2 mt-6 p-5 d-flex align-items-center justify-content-center position-relative"
         style={{
           backgroundImage: `url(${images[backgroundImageIndex]})`,
           backgroundSize: "cover",
@@ -51,36 +107,60 @@ function AppData({ language, onLanguageChange }) {
           transition: "300ms",
         }}
       >
-        <button className="arrow left" onClick={handlePreviousImage}>&#9664;</button>
-        <div>
-          <h1
-            style={{
-              marginBottom: "25px",
-            }}
-          >
-            <b>{language === "id" ? "Jelajahi Kekayaan Jawa Tengah" : "Explore the Richness of Central Java"}</b>
+        <button className="arrow left" onClick={handlePreviousImage}>
+          &#9664;
+        </button>
+        <div className="text-container">
+          <h1 style={{ marginBottom: "25px" }}>
+            <b>
+              {language === "id"
+                ? "Jelajahi Kekayaan Jawa Tengah"
+                : "Explore the Richness of Central Java"}
+            </b>
           </h1>
           <h5>
-            {language === "id" ? "Dengan pemandangan yang memukau, kekayaan sejarah yang luar biasa, dan keanekaragaman budaya yang kaya, Jawa Tengah menawarkan pengalaman indah tak terlupakan bagi para turis yang mencari petualangan sejati. Nikmatilah dan telusurilah bersama kami." : "With stunning views, extraordinary historical wealth, and rich cultural diversity, Central Java offers unforgettable beautiful experiences for tourists looking for a true adventure. Enjoy and explore with us."}
+            {language === "id"
+              ? "Dengan pemandangan yang memukau, kekayaan sejarah yang luar biasa, dan keanekaragaman budaya yang kaya, Jawa Tengah menawarkan pengalaman indah tak terlupakan bagi para turis yang mencari petualangan sejati. Nikmatilah dan telusurilah bersama kami."
+              : "With stunning views, extraordinary historical wealth, and rich cultural diversity, Central Java offers unforgettable beautiful experiences for tourists looking for a true adventure. Enjoy and explore with us."}
           </h5>
           <div className="bullets">
             {images.map((image, index) => (
               <button
                 key={index}
-                className={`bullet ${index === backgroundImageIndex ? 'active' : ''}`}
-                onClick={() => setBackgroundImageIndex(index)}
+                className={`bullet ${
+                  index === backgroundImageIndex ? "active" : ""
+                }`}
+                onClick={() => {
+                  setBackgroundImageIndex(index);
+                  setIsPaused(true);
+                  setTimeout(() => setIsPaused(false), 2000);
+                }}
               />
             ))}
           </div>
         </div>
-        <button className="arrow right" onClick={handleNextImage}>&#9654;</button>
+        <button className="arrow right" onClick={handleNextImage}>
+          &#9654;
+        </button>
       </div>
-      <div className="fun-fact mt-3 rounded-5">
+      <div
+        ref={funFactRef}
+        className={`fun-fact mt-3 rounded-5 ${isFunFactVisible ? "visible" : "hidden"}`}
+        style={{
+          backgroundColor: "white",
+          padding: "35px",
+          opacity: isFunFactVisible ? 1 : 0,
+          transform: `translateY(${isFunFactVisible ? 0 : 20}px)`,
+          transition: "opacity 0.5s ease-out, transform 0.6s ease-out",
+        }}
+      >
         <h5 className="mt-3">
           <b>{language === "id" ? "Apakah kamu tahu?" : "Did you know?"}</b>
         </h5>
         <p>
-          {language === "id" ? "Jawa Tengah saat ini telah menjadi destinasi wisata yang dikunjungi turis asing sehingga dapat menambah devisa negara dan membantu memasarkan budaya Indonesia. Diperkirakan tahun 2024, akan ada:" : "Central Java has now become a tourist destination visited by foreign tourists, thus increasing the country's foreign exchange and helping to market Indonesian culture. It is estimated that in 2024, there will be:"}
+          {language === "id"
+            ? "Jawa Tengah saat ini telah menjadi destinasi wisata yang dikunjungi turis asing sehingga dapat menambah devisa negara dan membantu memasarkan budaya Indonesia. Diperkirakan tahun 2024, akan ada:"
+            : "Central Java has now become a tourist destination visited by foreign tourists, thus increasing the country's foreign exchange and helping to market Indonesian culture. It is estimated that in 2024, there will be:"}
         </p>
         <div
           style={{
@@ -99,7 +179,9 @@ function AppData({ language, onLanguageChange }) {
             <h5>
               <b>90%</b>
             </h5>
-            {language === "id" ? "Capaian Devisa Negara dari Target" : "Foreign Exchange Achievement from Target"}
+            {language === "id"
+              ? "Capaian Devisa Negara dari Target"
+              : "Foreign Exchange Achievement from Target"}
           </div>
           <div className="ff rounded-2 m-1 p-3" style={{ flexBasis: "45%" }}>
             <h5>
@@ -111,13 +193,25 @@ function AppData({ language, onLanguageChange }) {
             <h5>
               <b>{language === "id" ? "21 Juta" : "21 million"}</b>
             </h5>
-            {language === "id" ? "Pengunjung + Mudik" : "Visitors + Homecoming"}
+            {language === "id"
+              ? "Pengunjung + Mudik"
+              : "Visitors + Homecoming"}
           </div>
         </div>
       </div>
       <div
-        className="buttons-container rounded-5"
-        style={{ backgroundColor: "white", padding: "35px", marginTop: "20px" }}
+        ref={navigationRef}
+        className={`buttons-container rounded-5 ${
+          isNavigationVisible ? "visible" : "hidden"
+        }`}
+        style={{
+          backgroundColor: "white",
+          padding: "35px",
+          marginTop: "20px",
+          opacity: isNavigationVisible ? 1 : 0,
+          transform: `translateY(${isNavigationVisible ? 0 : 20}px)`,
+          transition: "opacity 0.5s ease-out, transform 0.6s ease-out",
+        }}
       >
         <h2>{language === "id" ? "Navigasi" : "Navigation"}</h2>
         <div className="button-row">
@@ -128,7 +222,9 @@ function AppData({ language, onLanguageChange }) {
             }}
             onClick={() => handleRoute("/history")}
           >
-            <span className="nav-button-text">{language === "id" ? "Kembali ke Masa Lampau" : "Back to the Past"}</span>
+            <span className="nav-button-text">
+              {language === "id" ? "Kembali ke Masa Lampau" : "Back to the Past"}
+            </span>
           </button>
           <button
             className="nav-button"
@@ -137,7 +233,11 @@ function AppData({ language, onLanguageChange }) {
             }}
             onClick={() => handleRoute("/destinations")}
           >
-            <span className="nav-button-text">{language === "id" ? "Jelajahi Jawa Tengah" : "Explore Central Java"}</span>
+            <span className="nav-button-text">
+              {language === "id"
+                ? "Jelajahi Jawa Tengah"
+                : "Explore Central Java"}
+            </span>
           </button>
           <button
             className="nav-button"
@@ -146,7 +246,9 @@ function AppData({ language, onLanguageChange }) {
             }}
             onClick={() => handleRoute("/folklores")}
           >
-            <span className="nav-button-text">{language === "id" ? "Kisah-Kisah Rakyat" : "Folklore"}</span>
+            <span className="nav-button-text">
+              {language === "id" ? "Kisah-Kisah Rakyat" : "Folklore"}
+            </span>
           </button>
         </div>
       </div>

@@ -7,33 +7,41 @@ const teamMembers = [
     name: "Alif Nurfaiz Widyatmoko",
     image:
       "https://media.licdn.com/dms/image/D4E03AQFj94a3qEL26A/profile-displayphoto-shrink_400_400/0/1694530454891?e=1720656000&v=beta&t=HQYDZhWtDS6yui_-20oQfEVj3s0tjOi0D0hKzu7iifI",
-    description: "Suka Star Wars, The Orville, dan Sci-Fi lainnya",
-    descriptionEN: "Loves Star Wars, The Orville, and other Sci-Fis",
+    description: {
+      id: "Suka Star Wars, The Orville, dan Sci-Fi lainnya",
+      en: "Loves Star Wars, The Orville, and other Sci-Fis"
+    }
   },
   {
     name: "John Isaac Witness",
     image:
       "https://media.licdn.com/dms/image/D4E03AQHLL0yHmG_QEA/profile-displayphoto-shrink_400_400/0/1693917177158?e=1720656000&v=beta&t=6KzZM7hhhDN9u_k2cUJ3tLPOQykiEFN0cs972VPxjx8",
-    description: "Suka capybara dan PEDROOOO",
-    descriptionEN: "Loves capybara and PEDROOOO",
+    description: {
+      id: "Suka capybara dan PEDROOOO",
+      en: "Loves capybara and PEDROOOO"
+    }
   },
   {
     name: "Maxell Nathanael",
     image:
       "https://media.licdn.com/dms/image/D4D03AQHyMn9kKPnIzg/profile-displayphoto-shrink_400_400/0/1692976709581?e=1720656000&v=beta&t=iFF21USgB7FCM84udae1A763wrg-VKabEebJ8hhyuzg",
-    description: "Expert dalam strategi militer",
-    descriptionEN: "Have expertises in military strategies",
+    description: {
+      id: "Expert dalam strategi militer",
+      en: "Have expertises in military strategies"
+    }
   },
   {
     name: "Haikal Ibrahim Faturahman",
     image:
       "https://media.licdn.com/dms/image/D5603AQF_k-PO1B2trA/profile-displayphoto-shrink_400_400/0/1715188632976?e=1720656000&v=beta&t=20JoJzrYwDPqmRFYHtfsPLZE5FMtTDVb-FjsuSNxshU",
-    description: "Seorang pilot profesional dengan ribuan jam terbang",
-    descriptionEN: "A professional pilot with thousands of flying hours"
-  },
+    description: {
+      id: "Seorang pilot profesional dengan ribuan jam terbang",
+      en: "A professional pilot with thousands of flying hours"
+    }
+  }
 ];
 
-function About({language, onLanguageChange}) {
+function About({ language }) {
   const [selectedMembers, setSelectedMembers] = useState([]);
 
   const handleClick = (name) => {
@@ -48,7 +56,7 @@ function About({language, onLanguageChange}) {
 
   return (
     <Container className="container-custom">
-      <h2 className="h2-custom"><strong>{language==="id"?"Tentang Kami" : "About Us"}</strong></h2>
+      <h2 className="h2-custom"><strong>{language === "id" ? "Tentang Kami" : "About Us"}</strong></h2>
       <p className="p-custom">
         {language === "id" ? 
         "Inilah profil kami, mahasiswa Informatika Universitas Multimedia Nusantara. Dari kelompok 5 Kelas B, Mata Kuliah Intro to Internet Technology (PTI). Membuat Web berbasis ReactJS dan API."
@@ -77,7 +85,7 @@ function About({language, onLanguageChange}) {
                 }`}
               >
                 <Card.Body>
-                  <Card.Text>{language === "id" ? member.description : member.descriptionEN}</Card.Text>
+                  <Card.Text>{member.description[language]}</Card.Text>
                 </Card.Body>
               </Card>
             </div>

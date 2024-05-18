@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "./History.css";
 
@@ -39,6 +39,8 @@ const historyData = [
 ];
 
 function History({ language, onLanguageChange }) {
+  const [activeKey, setActiveKey] = useState("0");
+
   const handleImageClick = (index) => {
     const image = document.getElementById(`image-${index}`);
     image.classList.toggle("image-clicked");
@@ -47,7 +49,7 @@ function History({ language, onLanguageChange }) {
   return (
     <div className="mt-3">
       <h2><strong>{language === "id" ? "Sejarah" : "History"}</strong></h2>
-      <Accordion>
+      <Accordion defaultActiveKey={activeKey}>
         {historyData.map((item, index) => (
           <Accordion.Item eventKey={index.toString()} key={index}>
             <Accordion.Header>{item.title[language]}</Accordion.Header>

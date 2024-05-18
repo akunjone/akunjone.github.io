@@ -85,11 +85,11 @@ function MenuNavbar({ onLanguageChange }) {
           />
         </Navbar.Brand>
         <Nav className="ms-auto">
-          <Nav.Item onClick={() => handleLanguageChange("en")} style={{ cursor: "pointer" }}>
-            <img src="https://lh3.googleusercontent.com/d/1x3NKU4rdQguAVmxoFhmGOu9_6VD2ldtM" alt="English" width="30" />
+          <Nav.Item style={{ marginRight: "3px", cursor: "pointer" }} onClick={() => handleLanguageChange("en")}>
+              <img src="https://lh3.googleusercontent.com/d/1x3NKU4rdQguAVmxoFhmGOu9_6VD2ldtM" alt="English" width="30" />
           </Nav.Item>
-          <Nav.Item onClick={() => handleLanguageChange("id")} style={{ cursor: "pointer" }}>
-            <img src="https://lh3.googleusercontent.com/d/1X6N-8IrpcjRpJ9wF6FIZlumNkWJJpjQc" alt="Indonesia" width="30" />
+          <Nav.Item style={{ marginRight: "3px", cursor: "pointer" }} onClick={() => handleLanguageChange("id")}>
+              <img src="https://lh3.googleusercontent.com/d/1X6N-8IrpcjRpJ9wF6FIZlumNkWJJpjQc" alt="Indonesia" width="30" />
           </Nav.Item>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

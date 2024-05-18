@@ -10,36 +10,6 @@ body {
   background-color: rgb(255, 248, 230);
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-}
-
-.arrow.left {
-  left: 10px;
-}
-
-.arrow.right {
-  right: 10px;
-}
-
-.arrow:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
 .navbar {
   background-color: rgba(252, 171, 65, 0);
   border-bottom-left-radius: 30px;
@@ -102,8 +72,106 @@ body {
   width:70%;
 }
 
-.jelajah{
-  background-color: #fff;
+.jelajah {
+  position: relative;
+  width: calc(100vw - 6.5px);
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-left: -7.25%;
+  margin-right: -7.25%;
+}
+
+.text-container {
+  padding: 20px;
+  max-width: 65%;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+}
+
+.arrow.left {
+  left: 15px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.arrow:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.bullets {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bullet {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.bullet.active {
+  opacity: 1;
+}
+
+.bullet:hover {
+  opacity: 0.7;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 160px;
+  right: 40px;
+  z-index: 1000;
+}
+
+.scroll-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.scroll-button svg {
+  color: #7a5310;
 }
 
 .foto img{
@@ -111,9 +179,22 @@ body {
   height: 200px;
 }
 
-.fun-fact{
+.fun-fact {
   background-color: white;
   padding:35px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fun-fact.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fun-fact.hidden {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .ff{
@@ -124,6 +205,18 @@ body {
 .ff:hover{
   background-color: white;
   transition-duration:300ms;
+}
+
+.nav-button.hidden{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.nav-button.visible{
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .dest-background {
@@ -144,7 +237,29 @@ body {
 }
 
 .history-image:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+.folk-container {
+  width: 70%;
+  margin: auto;
+}
+
+.folk-image {
+  max-width: 40%;
+  height: auto;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease; 
+}
+
+.folk-image:hover {
+  transform: scale(1.03);
+}
+
+.folk-description {
+  text-align:center;
+  margin: auto;
+  max-width: 95%;
 }
 
 .card img {
@@ -208,59 +323,4 @@ body {
 
 .footer-show {
   animation: popUp 0.5s ease forwards;
-}
-
-.bullets {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.bullet {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  margin: 0 5px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.3s;
-}
-
-.bullet.active {
-  opacity: 1;
-}
-
-.bullet:hover {
-  opacity: 0.7;
-}
-
-.scroll-to-top {
-  position: fixed;
-  bottom: 160px;
-  right: 40px;
-  z-index: 1000;
-}
-
-.scroll-button {
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.scroll-button:hover {
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on hover */
-}
-
-.scroll-button svg {
-  color: #7a5310;
 }

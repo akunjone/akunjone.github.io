@@ -31,7 +31,7 @@ function App() {
               element={<Destinations language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
-              path="/Destinasi"
+              path="/destinasi"
               element={<Destinations language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
@@ -47,7 +47,7 @@ function App() {
               element={<Folk language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
-              path="/Cerita Rakyat"
+              path="/cerita-rakyat"
               element={<Folk language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
@@ -55,7 +55,7 @@ function App() {
               element={<Aboutus language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
-              path="/Tentang Kami"
+              path="/tentang-kami"
               element={<Aboutus language={language} onLanguageChange={handleLanguageChange} />}
             />
           </Routes>
