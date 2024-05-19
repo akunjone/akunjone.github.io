@@ -88,6 +88,7 @@ function Folk({ language }) {
   return (
     <div className="folk-container mt-4" style={{width:"70%"}}>
       <h2><strong>{language === "id" ? "Cerita Rakyat" : "Folklores"}</strong></h2>
+      <h3>{language === "id" ? "Kumpulan Cerita Rakyat dari Jawa Tengah" : "Collection of Folktales from Central Java"}</h3>
       <Accordion defaultActiveKey="0">
         {folkloreData.map((folklore, index) => (
           <Accordion.Item
@@ -118,3 +119,4 @@ function Folk({ language }) {
 }
 
 export default Folk;
+
