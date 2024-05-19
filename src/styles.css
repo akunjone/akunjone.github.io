@@ -321,4 +321,56 @@ body {
 
 .footer-show {
   animation: popUp 0.5s ease forwards;
+<<<<<<< HEAD
+=======
+}
+
+.bullets {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bullet {
+  width: 10px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bullet.active {
+  background-color: #7a5310;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 160px;
+  right: 40px;
+  z-index: 1000;
+}
+
+.scroll-button {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on hover */
+}
+
+.scroll-button svg {
+  color: #7a5310;
+>>>>>>> 2f139f26c8534d8843b20ae5a02a5ef1c3580f6b
 }

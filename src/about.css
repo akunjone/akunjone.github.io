@@ -1,9 +1,9 @@
 .card {
-    background-color: #dfdfdf;
+    background-color: #ffe0b1;
     border: none;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
-  
+
   .card-img-top {
     width: 100px;
     height: 100px;
@@ -15,6 +15,7 @@
   .card-title {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
+    color:black;
   }
   
   .card-text {
@@ -33,6 +34,16 @@
   
   .card {
     flex: 1;
+    border-radius: 0;
+  }
+  
+  .card-nama{
+    border-top-left-radius: 50%;
+    height:70px;
+  }
+
+  .card-description{
+    height:100px;
   }
   
   .container-custom {

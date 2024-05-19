@@ -2,6 +2,7 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "./folk.css";
 
+
 const folkloreData = [
   {
     title: {
@@ -39,7 +40,7 @@ const folkloreData = [
 
 function Folk({ language }) {
   return (
-    <div className="folk-container mt-3">
+    <div className="folk-container mt-4" style={{width:"70%"}}>
       <h2><strong>{language === "id" ? "Cerita Rakyat" : "Folklores"}</strong></h2>
       <Accordion defaultActiveKey="0">
         {folkloreData.map((folklore, index) => (

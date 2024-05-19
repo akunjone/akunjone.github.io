@@ -62,8 +62,8 @@ function MenuNavbar({ onLanguageChange }) {
         "/": "/",
         "/destinations": "/destinasi",
         "/history": "/sejarah",
-        "/folklores": "/cerita-rakyat",
-        "/aboutus": "/tentang-kami"
+        "/folklores": "/ceritarakyat",
+        "/aboutus": "/tentangkami"
       }
     };
     navigate(paths[language][path]);
