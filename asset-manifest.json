@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.3349113e.css",
-    "main.js": "/static/js/main.80a56eb3.js",
-    "static/media/jateng.png": "/static/media/jateng.1bb2fe08d9c7404839ca.png",
-    "index.html": "/index.html",
-    "main.3349113e.css.map": "/static/css/main.3349113e.css.map",
-    "main.80a56eb3.js.map": "/static/js/main.80a56eb3.js.map"
+    "main.css": "/uas-kelompok5-kelasb/static/css/main.3349113e.css",
+    "main.js": "/uas-kelompok5-kelasb/static/js/main.6fbc62b0.js",
+    "static/media/jateng.png": "/uas-kelompok5-kelasb/static/media/jateng.1bb2fe08d9c7404839ca.png",
+    "index.html": "/uas-kelompok5-kelasb/index.html",
+    "main.3349113e.css.map": "/uas-kelompok5-kelasb/static/css/main.3349113e.css.map",
+    "main.6fbc62b0.js.map": "/uas-kelompok5-kelasb/static/js/main.6fbc62b0.js.map"
   },
   "entrypoints": [
     "static/css/main.3349113e.css",
-    "static/js/main.80a56eb3.js"
+    "static/js/main.6fbc62b0.js"
   ]
 }
