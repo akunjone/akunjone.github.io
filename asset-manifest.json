@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/uas-kelompok5-kelasb/public/index.html/static/css/main.3349113e.css",
-    "main.js": "/uas-kelompok5-kelasb/public/index.html/static/js/main.6c8865df.js",
-    "static/media/jateng.png": "/uas-kelompok5-kelasb/public/index.html/static/media/jateng.1bb2fe08d9c7404839ca.png",
-    "index.html": "/uas-kelompok5-kelasb/public/index.html/index.html",
-    "main.3349113e.css.map": "/uas-kelompok5-kelasb/public/index.html/static/css/main.3349113e.css.map",
-    "main.6c8865df.js.map": "/uas-kelompok5-kelasb/public/index.html/static/js/main.6c8865df.js.map"
+    "main.css": "/uas-kelompok5-kelasb/src/index.js/static/css/main.3349113e.css",
+    "main.js": "/uas-kelompok5-kelasb/src/index.js/static/js/main.9cfaf44c.js",
+    "static/media/jateng.png": "/uas-kelompok5-kelasb/src/index.js/static/media/jateng.1bb2fe08d9c7404839ca.png",
+    "index.html": "/uas-kelompok5-kelasb/src/index.js/index.html",
+    "main.3349113e.css.map": "/uas-kelompok5-kelasb/src/index.js/static/css/main.3349113e.css.map",
+    "main.9cfaf44c.js.map": "/uas-kelompok5-kelasb/src/index.js/static/js/main.9cfaf44c.js.map"
   },
   "entrypoints": [
     "static/css/main.3349113e.css",
-    "static/js/main.6c8865df.js"
+    "static/js/main.9cfaf44c.js"
   ]
 }
