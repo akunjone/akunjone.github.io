@@ -2,6 +2,7 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import "./folk.css";
 
+
 const folkloreData = [
   {
     title: "Timun Mas",
