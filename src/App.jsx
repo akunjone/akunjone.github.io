@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./navbar";
 import AppData from "./AppData";
 import Destinations from "./Destinations";
@@ -20,8 +20,9 @@ function App() {
     <BrowserRouter>
       <AutoScrollToTop>
         <div className="App">
+          <Router basename="uas-kelompok5-kelasb">
           <Navbar onLanguageChange={handleLanguageChange} language={language} />
-          <Routes>
+          <Switch>
             <Route
               path="/"
               element={<AppData language={language} onLanguageChange={handleLanguageChange} />}
@@ -58,7 +59,8 @@ function App() {
               path="/tentangkami"
               element={<Aboutus language={language} onLanguageChange={handleLanguageChange} />}
             />
-          </Routes>
+          </Switch>
+          </Router>
         </div>
         <footer className="footer">
           <Footer language={language} onLanguageChange={handleLanguageChange} />
