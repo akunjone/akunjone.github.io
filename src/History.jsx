@@ -40,7 +40,6 @@ const historyData = [
 
 function History({ language, onLanguageChange }) {
   const [activeKey, setActiveKey] = useState("0");
-
   const handleImageClick = (index) => {
     const image = document.getElementById(`image-${index}`);
     image.classList.toggle("image-clicked");
@@ -49,16 +48,11 @@ function History({ language, onLanguageChange }) {
   return (
     <div className="mt-5">
       <h2><strong>{language === "id" ? "Sejarah" : "History"}</strong></h2>
-<<<<<<< HEAD
-      <Accordion defaultActiveKey={activeKey}>
-=======
-      <Accordion defaultActiveKey="0" className="container-fluid" style={{width:"70%"}}>
->>>>>>> 2f139f26c8534d8843b20ae5a02a5ef1c3580f6b
+      <Accordion defaultActiveKey={activeKey} className="container-fluid" style={{width:"70%"}}>
         {historyData.map((item, index) => (
           <Accordion.Item eventKey={index.toString()} key={index}>
             <Accordion.Header className="container-fluid">{item.title[language]}</Accordion.Header>
             <Accordion.Body>
-<<<<<<< HEAD
               <img
                 id={`image-${index}`}
                 src={item.image}
@@ -66,9 +60,6 @@ function History({ language, onLanguageChange }) {
                 onClick={() => handleImageClick(index)}
                 className="history-image"
               />
-=======
-              <img src={item.image} alt={item.title[language]} className="mb-3" style={{ display: 'block', width: '70%', height: 'auto', margin: 'auto' }} />
->>>>>>> 2f139f26c8534d8843b20ae5a02a5ef1c3580f6b
               <p>{item.description[language]}</p>
             </Accordion.Body>
           </Accordion.Item>

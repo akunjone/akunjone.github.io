@@ -45,7 +45,7 @@ function Folk({ language }) {
       <Accordion defaultActiveKey="0">
         {folkloreData.map((folklore, index) => (
           <Accordion.Item
-            eventKey=            {index.toString()}
+            eventKey={index.toString()}
             key={index}
             className="folk-item"
           >

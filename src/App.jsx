@@ -7,7 +7,7 @@ import History from "./History";
 import Folk from "./Folklores";
 import Aboutus from "./Aboutus";
 import Footer from "./footer";
-import AutoScrollToTop from "./AutoScrollToTop"; // Pastikan untuk mengimpor AutoScrollToTop
+import AutoScrollToTop from "./AutoScrollToTop";
 
 function App() {
   const [language, setLanguage] = useState("id");
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AutoScrollToTop> {/* Masukkan AutoScrollToTop di dalam BrowserRouter */}
+      <AutoScrollToTop>
         <div className="App">
           <Navbar onLanguageChange={handleLanguageChange} language={language} />
           <Routes>
@@ -47,7 +47,7 @@ function App() {
               element={<Folk language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
-              path="/cerita-rakyat"
+              path="/ceritarakyat"
               element={<Folk language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
@@ -55,7 +55,7 @@ function App() {
               element={<Aboutus language={language} onLanguageChange={handleLanguageChange} />}
             />
             <Route
-              path="/tentang-kami"
+              path="/tentangkami"
               element={<Aboutus language={language} onLanguageChange={handleLanguageChange} />}
             />
           </Routes>
@@ -63,7 +63,7 @@ function App() {
         <footer className="footer">
           <Footer language={language} onLanguageChange={handleLanguageChange} />
         </footer>
-      </AutoScrollToTop> {/* Tutup AutoScrollToTop di dalam BrowserRouter */}
+      </AutoScrollToTop>
     </BrowserRouter>
   );
 }

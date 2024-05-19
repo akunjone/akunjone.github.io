@@ -97,7 +97,7 @@ function AppData({ language, onLanguageChange }) {
   return (
     <div className="AppData container-fluid" style={{ width: "90%" }}>
       <div
-        className="jelajah rounded-2 mt-6 p-5 d-flex align-items-center justify-content-center position-relative"
+        className="jelajah rounded-2 mt-5 p-5 d-flex align-items-center justify-content-center position-relative"
         style={{
           backgroundImage: `url(${images[backgroundImageIndex]})`,
           backgroundSize: "cover",
@@ -108,7 +108,6 @@ function AppData({ language, onLanguageChange }) {
         }}
       >
         <button className="arrow left" onClick={handlePreviousImage}>
-          &#9664;
         </button>
         <div className="text-container">
           <h1 style={{ marginBottom: "25px" }}>
@@ -140,7 +139,6 @@ function AppData({ language, onLanguageChange }) {
           </div>
         </div>
         <button className="arrow right" onClick={handleNextImage}>
-          &#9654;
         </button>
       </div>
       <div

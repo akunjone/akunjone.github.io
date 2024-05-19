@@ -4,18 +4,6 @@ import "./about.css";
 
 const teamMembers = [
   {
-<<<<<<< HEAD
-    name: "Alif Nurfaiz Widyatmoko",
-    image:
-      "https://media.licdn.com/dms/image/D4E03AQFj94a3qEL26A/profile-displayphoto-shrink_400_400/0/1694530454891?e=1720656000&v=beta&t=HQYDZhWtDS6yui_-20oQfEVj3s0tjOi0D0hKzu7iifI",
-    description: {
-      id: "Suka Star Wars, The Orville, dan Sci-Fi lainnya",
-      en: "Loves Star Wars, The Orville, and other Sci-Fis"
-    }
-  },
-  {
-=======
->>>>>>> 2f139f26c8534d8843b20ae5a02a5ef1c3580f6b
     name: "John Isaac Witness",
     image:
       "https://media.licdn.com/dms/image/D4E03AQHLL0yHmG_QEA/profile-displayphoto-shrink_400_400/0/1693917177158?e=1720656000&v=beta&t=6KzZM7hhhDN9u_k2cUJ3tLPOQykiEFN0cs972VPxjx8",
@@ -28,8 +16,10 @@ const teamMembers = [
     name: "Alif Nurfaiz Widyatmoko",
     image:
       "https://media.licdn.com/dms/image/D4E03AQFj94a3qEL26A/profile-displayphoto-shrink_400_400/0/1694530454891?e=1720656000&v=beta&t=HQYDZhWtDS6yui_-20oQfEVj3s0tjOi0D0hKzu7iifI",
-    description: "Suka Star Wars, The Orville, dan Sci-Fi lainnya",
-    descriptionEN: "Loves Star Wars, The Orville, and other Sci-Fis",
+    description: {
+      id: "Suka Star Wars, The Orville, dan Sci-Fi lainnya",
+      en: "Loves Star Wars, The Orville, and other Sci-Fis",
+    }
   },
   {
     name: "Maxell Nathanael",
@@ -94,13 +84,8 @@ function About({ language }) {
                   isSelected(member.name) ? "flipped" : ""
                 }`}
               >
-<<<<<<< HEAD
                 <Card.Body>
                   <Card.Text>{member.description[language]}</Card.Text>
-=======
-                <Card.Body className="card-description">
-                  <Card.Text>{language === "id" ? member.description : member.descriptionEN}</Card.Text>
->>>>>>> 2f139f26c8534d8843b20ae5a02a5ef1c3580f6b
                 </Card.Body>
               </Card>
             </div>
