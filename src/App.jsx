@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <AutoScrollToTop>
-        <div className="App">
+         <div className="App">
           <Navbar onLanguageChange={handleLanguageChange} language={language} />
           <Routes>
             <Route
